@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/passArgsAFragment">
+
+    <fragment
+        android:id="@+id/passArgsAFragment"
+        android:name="com.gunt.fragmentdatapassexample.pass.passargs.PassArgsAFragment"
+        android:label="PassArgsAFragment" >
+        <action
+            android:id="@+id/passAToB"
+            app:destination="@id/passArgsBFragment"
+            app:launchSingleTop="true" />
+        <argument
+            android:name="argsString"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+    <fragment
+        android:id="@+id/passArgsBFragment"
+        android:name="com.gunt.fragmentdatapassexample.pass.passargs.PassArgsBFragment"
+        android:label="PassArgsBFragment" >
+        <action
+            android:id="@+id/passBToA"
+            app:destination="@id/passArgsAFragment"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/nav_graph" />
+        <argument
+            android:name="argsString"
+            app:argType="string"
+            android:defaultValue=""/>
+    </fragment>
+</navigation>
